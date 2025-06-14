@@ -1,10 +1,14 @@
-try:
-    arch = open('prueba.txt','rt')
-    print(arch.readline())
-except OSError as msj:
-    print('Error:',msj)
-finally:
+def imprimirArchivo():
     try:
-        arch.close()
-    except NameError:
-        pass
+        arch = open('prueba.txt','rt') 
+    except OSError as msj:
+        print('Error:',msj)
+    else:
+        print(arch.readlines())
+    finally:
+        try:
+            arch.close()
+        except NameError:
+            pass
+
+imprimirArchivo()
